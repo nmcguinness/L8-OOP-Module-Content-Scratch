@@ -1,9 +1,10 @@
 public class Vector3 {
 
-    //fields
-    private double _x, _y, _z;
+    //region Fields
+    private double _x, _y, _z;  //8 bytes x 3 = 24 bytes
+    //endregion
 
-    //accessor methods
+    //region Accessor Methods
     public double getX() {
         return _x;
     }
@@ -20,8 +21,9 @@ public class Vector3 {
         _x = x < 0 ? 0: x;  //use ternary operator for input validation
         return _x;
     }
+    //endregion
 
-    //constructors
+    //region Constructors
     public Vector3() {
         _x = _y = _z = 0;
     }
@@ -30,5 +32,11 @@ public class Vector3 {
         _x = x;
         _y = y;
         _z = z;
+    }
+    //endregion
+
+    @Override
+    public String toString() {
+        return "(" + _x + "," + _y + "," + _z + ")";
     }
 }
