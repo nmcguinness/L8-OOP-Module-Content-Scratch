@@ -36,4 +36,8 @@ void main() {
     System.out.println(v4.getX());
     v4 = null;
 
+    Student s1  = new Student();
+    Student s2 = new Student("jane", (byte)55);
+
+
 }
