@@ -1,3 +1,5 @@
+package topic0;
+
 public class Player {                          // class declaration
 
     // --- Fields (state) ---
@@ -5,7 +7,7 @@ public class Player {                          // class declaration
     private int _score;
 
     // --- Constructor ---
-    public Player(String name) {               // called when you write: new Player("Alice")
+    public Player(String name) {               // called when you write: new topic0.Player("Alice")
         if (name == null || name.isBlank()) {
             throw new IllegalArgumentException("Name must not be blank");
         }

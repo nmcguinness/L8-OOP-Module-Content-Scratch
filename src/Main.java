@@ -1,3 +1,6 @@
+import topic0.Student;
+import topic0.Vector3;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 void main() {
@@ -24,10 +27,10 @@ void main() {
     v2.setX(x);
     System.out.println(v1);
 
-    // v3 is a variable that can store a Vector3 but doesnt yet!
+    // v3 is a variable that can store a topic0.Vector3 but doesnt yet!
     Vector3 v3 = null;
 
-    // this statement (because it ends with semicolon) instantiates a new Vector3 in RAM
+    // this statement (because it ends with semicolon) instantiates a new topic0.Vector3 in RAM
     // and assigns its address to the variable v3
     v3 = new Vector3(5,6,7);
     System.out.println(v3);
@@ -38,6 +41,5 @@ void main() {
 
     Student s1  = new Student();
     Student s2 = new Student("jane", (byte)55);
-
 
 }

@@ -1,3 +1,5 @@
+package topic0;
+
 public class Vector3 {
 
     //region Fields
