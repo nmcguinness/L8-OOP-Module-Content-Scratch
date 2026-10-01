@@ -1,5 +1,6 @@
 import topic0.Student;
 import topic0.Vector3;
+import topic01.PrintDirection;
 
 
 void main() {
@@ -74,9 +75,9 @@ private void topic1Demo() {
 
     printArray("Other grades", otherGrades);
 
-    printArray("My nums", nums, true);
+    printArray("My nums", nums, PrintDirection.Forward);
 
-    printArray("My nums", nums, false);
+    printArray("My nums", nums, PrintDirection.Backward);
 
 }
  //create a printArray(int[] array) method that prints an array
@@ -87,9 +88,9 @@ private void printArray(String header, int[] data){
 }
 
 //create a printArray method that prints an array backwards or forwards
-private void printArray(String header, int[] data, boolean isForwards)
+private void printArray(String header, int[] data, PrintDirection direction)
 {
-    if(isForwards){ //forwards
+    if(direction == PrintDirection.Forward){ //forwards
         printArray(header, data);
     }
     else {  //backwards
