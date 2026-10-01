@@ -71,9 +71,33 @@ private void topic1Demo() {
     }
     else
         System.out.println("Cannot compare two arrays of different length!");
+
+    printArray("Other grades", otherGrades);
+
+    printArray("My nums", nums, true);
+
+    printArray("My nums", nums, false);
+
 }
  //create a printArray(int[] array) method that prints an array
+private void printArray(String header, int[] data){
+    System.out.println(header);
+    for(int i = 0; i < data.length; i++)
+        System.out.println(data[i]);
+}
 
+//create a printArray method that prints an array backwards or forwards
+private void printArray(String header, int[] data, boolean isForwards)
+{
+    if(isForwards){ //forwards
+        printArray(header, data);
+    }
+    else {  //backwards
+        System.out.println(header);
+        for(int i = data.length-1; i >= 0; i--)
+            System.out.println(data[i]);
+    }
+}
 
 
 
