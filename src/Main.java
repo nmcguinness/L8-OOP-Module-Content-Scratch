@@ -14,7 +14,7 @@ private void topic1Demo() {
     int[] nums = {3, 5, 8};  //nums stores ADDR of first element in an array of integers
 
     // With length (values default to 0)
-    int[] grades = new int[4]; // {0,0,0,0}
+    int[] grades =  {1, 2, 3, 4, 5, 6, 7, 8};
 
     //read
     int v1 = nums[2];
@@ -32,7 +32,50 @@ private void topic1Demo() {
     for(int i = 0; i < grades.length; i++) {
         System.out.println(grades[i]);
     }
+
+    //print the array in reverse order
+    for(int i = grades.length - 1; i >= 0; i--) {
+        System.out.println(grades[i]);
+    }
+
+    System.out.println("--------------");
+
+    //print every odd indexed element in the array
+    for(int i = 1; i < grades.length; i+=2)
+        System.out.println(grades[i]);
+
+    System.out.println("--------------");
+
+    //print contents if multiple of 3 (Hint: use % operator and an if())
+
+    for(int i = 0; i < grades.length; i++) {
+
+        int value = grades[i]; //accessing an array costs TIME so do it once only per loop
+
+        if(value%3 == 0)
+            System.out.println(value);
+    }
+
+    System.out.println("--------------");
+
+    //make another array of ints, same size as grades, add ints, then compare two arrays
+    int[] otherGrades = {1,2,3,4,55555,6,7,8};
+
+    if(grades.length == otherGrades.length)
+    {
+        for(int i = 0; i < grades.length; i++)
+        {
+            if(grades[i] != otherGrades[i])
+                System.out.println("Different at index " + i);
+        }
+    }
+    else
+        System.out.println("Cannot compare two arrays of different length!");
 }
+ //create a printArray(int[] array) method that prints an array
+
+
+
 
 
 
