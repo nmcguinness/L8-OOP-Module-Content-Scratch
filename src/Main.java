@@ -1,10 +1,43 @@
 import topic0.Student;
 import topic0.Vector3;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
 
+void main() {
+    topic0Demo();
+
+    topic1Demo();
+}
+
+private void topic1Demo() {
+
+    // Literal (known values now)
+    int[] nums = {3, 5, 8};  //nums stores ADDR of first element in an array of integers
+
+    // With length (values default to 0)
+    int[] grades = new int[4]; // {0,0,0,0}
+
+    //read
+    int v1 = nums[2];
+    System.out.println(v1);
+
+    //write
+    nums[1] = 6 * nums[2];
+    System.out.println(nums[1]);
+
+    //get size
+    int l = grades.length;
+    System.out.println("Grades array is " + l + " in length");
+
+    //iterate across
+    for(int i = 0; i < grades.length; i++) {
+        System.out.println(grades[i]);
+    }
+}
+
+
+
+
+private void topic0Demo(){
     //region Intro Demo
     System.out.println("Hello World");
     System.out.println("Hello World");
