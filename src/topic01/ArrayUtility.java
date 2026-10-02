@@ -67,11 +67,27 @@ public class ArrayUtility
             j--;
         }
 
+        //if reversed, what do we return?
         return -1;
     }
     //B
 
     //write a method to get the sum of values
+    public static int sum(int[] data)
+    {
+        if(data == null)
+            return 0;
+
+        int sum = 0;
+
+       // for(int i=0; i<data.length; i++)
+        //    sum += data[i];
+
+        for(int value : data) //read-only for loop
+            sum += value;
+
+        return sum;
+    }
 
     //write a method to get the mean (average) of values
 

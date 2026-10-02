@@ -89,6 +89,16 @@ private void topic1Demo() {
 
     System.out.println("Compare reverse: " + ArrayUtility.compareReverse(p1, p2));
 
+    int[] badData = null; //variable does not point to a valid first address in an array of ints
+
+    ArrayUtility.sum(badData);
+
+    badData = new int[2];
+    badData[0] = 34;
+    badData[1] = 10;
+
+    ArrayUtility.sum(badData);
+
 
 }
 // //create a printArray(int[] array) method that prints an array
