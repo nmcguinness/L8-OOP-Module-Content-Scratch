@@ -3,9 +3,6 @@ import topic0.Vector3;
 import topic01.PrintDirection;
 import topic01.ArrayUtility;
 
-import static com.sun.org.apache.bcel.internal.classfile.Utility.printArray;
-
-
 void main() {
     topic0Demo();
 
@@ -82,6 +79,15 @@ private void topic1Demo() {
     ArrayUtility.print("Other grades", otherGrades);
     ArrayUtility.print("My nums", nums, PrintDirection.Forward);
     ArrayUtility.print("My nums", nums, PrintDirection.Backward);
+
+    int[] p1 = {1999, 2003, -1};
+    int[] p2 = {1999, 2003, 2005};
+
+    int index = ArrayUtility.findFirstDifference(p1, p2);
+    System.out.println("First difference is index [" + index + "] with values p1[" + p1[index] + "] and p2[" + p2[index] + "]");
+
+
+
 
 }
 // //create a printArray(int[] array) method that prints an array
