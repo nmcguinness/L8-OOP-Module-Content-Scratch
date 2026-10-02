@@ -1,6 +1,9 @@
 import topic0.Student;
 import topic0.Vector3;
 import topic01.PrintDirection;
+import topic01.ArrayUtility;
+
+import static com.sun.org.apache.bcel.internal.classfile.Utility.printArray;
 
 
 void main() {
@@ -73,32 +76,33 @@ private void topic1Demo() {
     else
         System.out.println("Cannot compare two arrays of different length!");
 
-    printArray("Other grades", otherGrades);
+//    PrintUtility x = new PrintUtility();
+//    x.printArray("Other grades", otherGrades);
 
-    printArray("My nums", nums, PrintDirection.Forward);
-
-    printArray("My nums", nums, PrintDirection.Backward);
+    ArrayUtility.print("Other grades", otherGrades);
+    ArrayUtility.print("My nums", nums, PrintDirection.Forward);
+    ArrayUtility.print("My nums", nums, PrintDirection.Backward);
 
 }
- //create a printArray(int[] array) method that prints an array
-private void printArray(String header, int[] data){
-    System.out.println(header);
-    for(int i = 0; i < data.length; i++)
-        System.out.println(data[i]);
-}
-
-//create a printArray method that prints an array backwards or forwards
-private void printArray(String header, int[] data, PrintDirection direction)
-{
-    if(direction == PrintDirection.Forward){ //forwards
-        printArray(header, data);
-    }
-    else {  //backwards
-        System.out.println(header);
-        for(int i = data.length-1; i >= 0; i--)
-            System.out.println(data[i]);
-    }
-}
+// //create a printArray(int[] array) method that prints an array
+//private void printArray(String header, int[] data){
+//    System.out.println(header);
+//    for(int i = 0; i < data.length; i++)
+//        System.out.println(data[i]);
+//}
+//
+////create a printArray method that prints an array backwards or forwards
+//private void printArray(String header, int[] data, PrintDirection direction)
+//{
+//    if(direction == PrintDirection.Forward){ //forwards
+//        printArray(header, data);
+//    }
+//    else {  //backwards
+//        System.out.println(header);
+//        for(int i = data.length-1; i >= 0; i--)
+//            System.out.println(data[i]);
+//    }
+//}
 
 
 
