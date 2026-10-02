@@ -80,13 +80,14 @@ private void topic1Demo() {
     ArrayUtility.print("My nums", nums, PrintDirection.Forward);
     ArrayUtility.print("My nums", nums, PrintDirection.Backward);
 
-    int[] p1 = {1999, 2003, -1};
-    int[] p2 = {1999, 2003, 2005};
+    int[] p1 = {3, 6, 9};
+    int[] p2 = {9, 6, 3};
 
     int index = ArrayUtility.findFirstDifference(p1, p2);
     System.out.println("First difference is index [" + index + "] with values p1[" + p1[index] + "] and p2[" + p2[index] + "]");
 
 
+    System.out.println("Compare reverse: " + ArrayUtility.compareReverse(p1, p2));
 
 
 }
