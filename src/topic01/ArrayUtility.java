@@ -90,6 +90,31 @@ public class ArrayUtility
     }
 
     //write a method to get the mean (average) of values
+    public static float mean(int[] data)
+    {
+        return (float)sum(data) / data.length;  //9/5 = 1.8 but we get 1
+    }
 
     //write a method to get the standard deviation of values
+    public static double sd(int[] data)
+    {
+        float mu = mean(data); //mu is mean
+        float sumOfDifferences = 0;
+
+        for(int i = 0; i < data.length; i++)
+        {
+            float diff = data[i] - mu;
+            sumOfDifferences += diff*diff;
+        }
+
+        return Math.sqrt(sumOfDifferences/data.length);
+    }
+
+    //the finale trick!
+
+    public static <T> void print(String header, T[] data){
+        System.out.println(header);
+        for(int i = 0; i < data.length; i++)
+            System.out.println(data[i]);
+    }
 }

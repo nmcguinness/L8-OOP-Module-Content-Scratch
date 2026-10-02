@@ -81,7 +81,7 @@ private void topic1Demo() {
     ArrayUtility.print("My nums", nums, PrintDirection.Backward);
 
     int[] p1 = {3, 6, 9};
-    int[] p2 = {9, 6, 3};
+    int[] p2 = {10, 6, 3};
 
     int index = ArrayUtility.findFirstDifference(p1, p2);
     System.out.println("First difference is index [" + index + "] with values p1[" + p1[index] + "] and p2[" + p2[index] + "]");
@@ -98,6 +98,13 @@ private void topic1Demo() {
     badData[1] = 10;
 
     ArrayUtility.sum(badData);
+
+    System.out.println("Mean of p1 is " + ArrayUtility.mean(p1));
+
+    float meanP2 = ArrayUtility.mean(p2);
+    System.out.println("Mean of p2 is " + meanP2);
+    //...
+    //use meanp2 later - i can
 
 
 }
