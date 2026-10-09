@@ -11,12 +11,12 @@ public class LicencePlate {
         String[] parts = fullLicencePlate.split("[0-9]{3}[A-Z]{1,2}[0-9]{1,5}");
 
         if(parts != null && parts.length == 3) {
-            this.strNumber = parts[0];
+            this.strYear = parts[0];
             this.strCounty = parts[1];
-            this.strYear = parts[2];
+            this.strNumber = parts[2];
         }
     }
     public String toString(){
-        return strYear + "-" + strCounty + "-" + strYear;
+        return strYear + "-" + strCounty + "-" + strNumber;
     }
 }
