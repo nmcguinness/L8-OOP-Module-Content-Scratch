@@ -1,4 +1,5 @@
 import ce01.LicencePlate;
+import ce01.LicencePlateHelper;
 import ce01.Solution;
 import topic0.Student;
 import topic0.Vector3;
@@ -19,11 +20,13 @@ void main() {
     //Version 3 - convert execute() from instance method to class/static method
     //Solution.executeV2();
 
-    LicencePlate l1 = new LicencePlate("192 D 12345");
+    LicencePlate l1 = new LicencePlate("262 L 11662");
     System.out.println(l1);
 
-
-
+    System.out.println(LicencePlateHelper.sumsTo(l1.getStrYear(), 10));
+    System.out.println(LicencePlateHelper.containsLetter(l1.getStrCounty(), "L"));
+    System.out.println(LicencePlateHelper.containsSequence(l1.getStrNumber(),
+            "[0-57-9]{0,}6[0-57-9]{0,}6[0-57-9]{0,}"));
 }
 
 
