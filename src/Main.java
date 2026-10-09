@@ -1,3 +1,4 @@
+import ce01.LicencePlate;
 import ce01.Solution;
 import topic0.Student;
 import topic0.Vector3;
@@ -16,7 +17,10 @@ void main() {
     //new Solution().execute();
 
     //Version 3 - convert execute() from instance method to class/static method
-    Solution.executeV2();
+    //Solution.executeV2();
+
+    LicencePlate l1 = new LicencePlate("192 D 12345");
+    System.out.println(l1);
 
 
 
