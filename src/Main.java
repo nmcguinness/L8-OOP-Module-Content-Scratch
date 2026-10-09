@@ -9,14 +9,16 @@ void main() {
    // topic1Demo();
 
     //Version 1v - mySoln points to (stores address of) an instance of Solution class
-    Solution mySoln = new Solution();
-    mySoln.execute();
+    //Solution mySoln = new Solution();
+    //mySoln.execute();
 
     //Version 2 - no variable, just instanciate object and call method
-    new Solution().execute();
+    //new Solution().execute();
 
     //Version 3 - convert execute() from instance method to class/static method
     Solution.executeV2();
+
+
 
 }
 
