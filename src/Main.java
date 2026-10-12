@@ -1,32 +1,53 @@
 import ce01.LicencePlate;
-import ce01.LicencePlateHelper;
-import ce01.Solution;
-import topic0.Student;
-import topic0.Vector3;
-import topic01.PrintDirection;
-import topic01.ArrayUtility;
+import ce01.LicencePlateValidator;
 
 void main() {
     //topic0Demo();
-   // topic1Demo();
+    // topic1Demo();
 
-    //Version 1v - mySoln points to (stores address of) an instance of Solution class
-    //Solution mySoln = new Solution();
-    //mySoln.execute();
+    challengeExercise01();
+}
 
-    //Version 2 - no variable, just instanciate object and call method
-    //new Solution().execute();
+private void challengeExercise01() {
 
-    //Version 3 - convert execute() from instance method to class/static method
-    //Solution.executeV2();
-
+    // Create a license plate.
     LicencePlate l1 = new LicencePlate("262 L 11662");
-    System.out.println(l1);
+        System.out.println(l1);
 
-    System.out.println(LicencePlateHelper.sumsTo(l1.getStrYear(), 10));
-    System.out.println(LicencePlateHelper.containsLetter(l1.getStrCounty(), "L"));
-    System.out.println(LicencePlateHelper.containsSequence(l1.getStrNumber(),
-            "[0-57-9]{0,}6[0-57-9]{0,}6[0-57-9]{0,}"));
+    // Create a validator.
+        LicencePlateValidator validator = new LicencePlateValidator();
+
+    // Define validation criteria.
+        int yearTargetSum = 10;
+        String countyRegex = ".*L.*";
+        String numberRegex = ".*6.*6.*";
+
+    // Test the year.
+        boolean isYearValid = validator.validateYear(
+                l1.getYear(), yearTargetSum);
+
+        System.out.println("Year valid: " + isYearValid);
+
+    // Test the county.
+        boolean isCountyValid = validator.validateCounty(
+                l1.getCounty(), countyRegex);
+
+        System.out.println("County valid: " + isCountyValid);
+
+    // Test the number.
+        boolean isNumberValid = validator.validateNumber(
+                l1.getNumber(), numberRegex);
+
+        System.out.println("Number valid: " + isNumberValid);
+
+    // Test the complete license plate.
+        boolean isLicensePlateValid = validator.validate(
+                l1,
+                numberRegex,
+                countyRegex,
+                yearTargetSum);
+
+        System.out.println("License plate valid: " + isLicensePlateValid);
 }
 
 

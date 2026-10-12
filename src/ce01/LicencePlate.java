@@ -1,34 +1,56 @@
 package ce01;
 
 public class LicencePlate {
-    private String fullLicencePlate;
-    private String strYear, strCounty, strNumber;
 
-    public String getStrYear() {
-        return strYear;
+    /*
+     * Examples:
+     * 191 L 12345
+     * 11 L 12345
+     * 131 L 12345
+     * 132 L 12345
+     */
+
+    //region Fields
+    private String year;
+    private String county;
+    private String number;
+    //endregion
+
+    //region Getters & Setters
+    public String getYear() {
+        return year;
     }
 
-    public String getStrCounty() {
-        return strCounty;
+    public String getCounty() {
+        return county;
     }
 
-    public String getStrNumber() {
-        return strNumber;
+    public String getNumber() {
+        return number;
     }
+    //endregion
 
-    public LicencePlate(String fullLicencePlate){
-        this.fullLicencePlate = fullLicencePlate; //"262DL11662"
+    //region Constructor
+    public LicencePlate(String rawLicensePlate) {
+        // TODO: Handle null input and malformed registration strings.
+        String[] parts = rawLicensePlate.trim().split("\\s+");
 
-        //split the string into parts
-        String[] parts = fullLicencePlate.split("\\s");
-
-        if(parts != null && parts.length == 3) {
-            this.strYear = parts[0];
-            this.strCounty = parts[1];
-            this.strNumber = parts[2];
+        if (parts.length == 3) {
+            this.year = parts[0];
+            this.county = parts[1];
+            this.number = parts[2];
         }
     }
-    public String toString(){
-        return strYear + "-" + strCounty + "-" + strNumber;
+    //endregion
+
+    //region Overrides
+    @Override
+    public String toString() {
+        return "LicensePlate{" +
+                "year='" + year + '\'' +
+                ", county='" + county + '\'' +
+                ", number='" + number + '\'' +
+                '}';
     }
+    //endregion
 }

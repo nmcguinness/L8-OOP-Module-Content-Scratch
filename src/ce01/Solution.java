@@ -1,25 +1,62 @@
 package ce01;
-
 import java.util.ArrayList;
 
 public class Solution {
 
-    //only call instance method when we use `new Solution`
-    public void execute(){
-        //step 1 - load the data
-        ArrayList<String> licencePlateList = FileUtils.readDelimitedFile("ce01_data.txt", ',');
+    public static void run() {
 
-        //step 2 - show the data
-        System.out.println(licencePlateList);
+        // Helper to tell you what directory to put your data file in.
+        System.out.println(
+                "Put your data file in: "
+                        + System.getProperty("user.dir"));
+
+        long startTimeNS = System.nanoTime();
+
+        // Read all file contents.
+        char dataDelimiter = ',';
+        String filePath = "data/ce01/ce01_data.txt";
+
+        ArrayList<String> rawLicensePlateList =
+                FileUtils.readDelimitedFile(
+                        filePath, dataDelimiter);
+
+        // Exit if the file could not be read or contains no data.
+        if (rawLicensePlateList == null
+                || rawLicensePlateList.isEmpty()) {
+            return;
+        }
+
+        // Conditions for success.
+        String numberRegex = ".*6.*6.*";
+        String countyRegex = ".*L.*";
+        int yearTargetSum = 10;
+
+        // Create the validator.
+        LicencePlateValidator validator =
+                new LicencePlateValidator();
+
+        // Parse contents into LicensePlate objects and validate them.
+        for (String rawLicensePlate : rawLicensePlateList) {
+
+            LicencePlate licensePlate =
+                    new LicencePlate(rawLicensePlate);
+
+            boolean isValid = validator.validate(
+                    licensePlate,
+                    numberRegex,
+                    countyRegex,
+                    yearTargetSum);
+
+            // We found a match!
+            if (isValid) {
+                System.out.println("Found: " + licensePlate);
+            }
+        }
+
+        long finishTimeNS = System.nanoTime();
+
+        System.out.println(
+                "Execution time (ms): "
+                        + (finishTimeNS - startTimeNS) / 1E6);
     }
-
-    //call only using class name and no instance i.e. Solution.executeV2
-    public static void executeV2(){
-        //step 1 - load the data
-        ArrayList<String> licencePlateList = FileUtils.readDelimitedFile("ce01_data.txt", ',');
-
-        //step 2 - show the data
-        System.out.println(licencePlateList);
-    }
-
 }
