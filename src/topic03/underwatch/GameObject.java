@@ -4,7 +4,7 @@ import topic0.Vector3;
 public abstract class GameObject {
     private String _name;
     private Vector3 _position;
-    
+
     public Vector3 get_position() {
         return _position;
     }
@@ -29,6 +29,13 @@ public abstract class GameObject {
         _name = name;
         _position = position;
     }
+
+    @Override
+    public String toString(){
+        return "GameObject(" + _name + "," + _position + ")";
+    }
+
+    //TODO - equals, hashCode
 
 
 }
