@@ -1,6 +1,15 @@
 package topic0;
 
+import java.util.Vector;
+
 public class Vector3 {
+
+    //region Static Fields
+    public static final Vector3 Zero = new Vector3(0,0,0);
+    public static final Vector3 UnitX = new Vector3(1,0,0);
+    public static final Vector3 UnitY = new Vector3(0,1,0);
+    public static final Vector3 UnitZ = new Vector3(0,0,1);
+    //endregion
 
     //region Fields
     private double _x, _y, _z;  //8 bytes x 3 = 24 bytes

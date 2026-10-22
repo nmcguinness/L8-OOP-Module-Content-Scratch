@@ -1,11 +1,65 @@
+import ce01.FileUtils;
 import ce01.LicencePlate;
 import ce01.LicencePlateValidator;
 
 void main() {
     //topic0Demo();
-    // topic1Demo();
+    //topic1Demo();
+    //challengeExercise01();
+    //topic1_2DArrays();
 
-    challengeExercise01();
+    //tesla cannon, rheinhardt hammer, grav cannon, plasma cannon
+
+    //characteristic
+        //health (no max)
+        //same speed
+        //weapon difference
+    //abilities
+        //rheinhardt (fire strike, charge, shield)
+        //zarya (dynamic protective bubble, charge from bubble attack)
+        //winston (jump, land damage, stationary bubble (only protection)
+
+    //accumulate ultimate charge
+      //use on buffs
+        //damage boost (20)
+        //overhealth (HP+600)
+
+    //characters
+        //50+
+            //rheinhardt
+            //zarya
+            //winston
+
+    //objectives
+        //flag (vacant possession)
+        //playload (push, enemy in range, slides back to checkpoint)
+
+
+}
+
+private void topic1_2DArrays() {
+
+    // Rectangular: same columns in every row
+    int[][] rect = new int[3][4]; // 3 rows, 4 cols each
+
+    rect[0][2] = 101;
+
+    int rows = rect.length;
+    System.out.println(rows);
+
+    int cols = rect[0].length;
+    System.out.println(cols);
+    print2D(rect);
+}
+
+private void print2D(int[][] data)
+{
+    for(int row = 0; row < data.length; row++){
+        for(int col = 0; col < data[row].length; col++){
+            System.out.print(data[row][col] + "\t");
+        }
+        System.out.println();
+    }
 }
 
 private void challengeExercise01() {
@@ -19,7 +73,7 @@ private void challengeExercise01() {
 
     // Define validation criteria.
         int yearTargetSum = 10;
-        String countyRegex = ".*L.*";
+        String countyRegex = ".*L.*";  //any char {0,} L
         String numberRegex = ".*6.*6.*";
 
     // Test the year.
@@ -48,6 +102,48 @@ private void challengeExercise01() {
                 yearTargetSum);
 
         System.out.println("License plate valid: " + isLicensePlateValid);
+
+//    ArrayList<String> rawLicences = FileUtils.readDelimitedFile("ce01_data.txt", ',');
+//
+//    LicencePlate licence;
+//
+//    long startTime = System.nanoTime();
+//
+//    for(String rawLicence : rawLicences){
+//        licence = new LicencePlate(rawLicence);
+//
+//        if(validator.validateYear(licence.getYear(), 10)
+//                && validator.validateCounty(licence.getCounty(), countyRegex)
+//                    && validator.validateNumber(licence.getNumber(), numberRegex))
+//                {
+//                    System.out.println("Valid licence is: " + licence);
+//                }
+//    }
+//
+//    long diffTime = System.nanoTime() - startTime;
+//    diffTime /= 1E6;
+//    System.out.println("Running time(ms): " + diffTime);
+
+    ArrayList<String> rawLicences = FileUtils.readDelimitedFile("ce01_data.txt", ',');
+
+    LicencePlate licence;
+
+    long startTime = System.nanoTime();
+
+    for(int i = 0; i < rawLicences.size(); i++){
+        licence = new LicencePlate(rawLicences.get(i));
+
+        if(validator.validateYear(licence.getYear(), 10)
+                && validator.validateCounty(licence.getCounty(), countyRegex)
+                && validator.validateNumber(licence.getNumber(), numberRegex))
+        {
+            System.out.println("Valid licence is: " + licence);
+        }
+    }
+
+    long diffTime = System.nanoTime() - startTime;
+    diffTime /= 1E6;
+    System.out.println("Running time(ms): " + diffTime);
 }
 
 

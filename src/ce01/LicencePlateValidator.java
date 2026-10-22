@@ -18,7 +18,7 @@ public class LicencePlateValidator {
         for (int i = 0; i < year.length(); i++) {
             char digit = year.charAt(i);
 
-            if (!Character.isDigit(digit)) {
+            if (!Character.isDigit(digit)) {  //'0' = 48 (ASCII)
                 return false;
             }
 
