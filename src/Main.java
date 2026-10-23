@@ -1,13 +1,11 @@
 import ce01.FileUtils;
 import ce01.LicencePlate;
 import ce01.LicencePlateValidator;
+import topic03.underwatch.Color;
+import topic03.underwatch.Team;
+import topic03.underwatch.TeamNameComparator;
 
-void main() {
-    //topic0Demo();
-    //topic1Demo();
-    //challengeExercise01();
-    //topic1_2DArrays();
-
+/*
     //tesla cannon, rheinhardt hammer, grav cannon, plasma cannon
 
     //characteristic
@@ -33,9 +31,51 @@ void main() {
     //objectives
         //flag (vacant possession)
         //playload (push, enemy in range, slides back to checkpoint)
+*/
 
-
+void main() {
+    topic03_UnderwatchDemo();
 }
+
+private void topic03_UnderwatchDemo() {
+
+    //step 1 - make some teams and add to an arraylist
+    ArrayList<Team> teamsList = new ArrayList<>();
+
+    teamsList.add(new Team("Team B", Color.BLACK));
+    teamsList.add(new Team("Team R", Color.RED));
+    teamsList.add(new Team("Team G", Color.GREEN));
+    teamsList.add(new Team("Team W", Color.WHITE));
+
+    //step 2 - order by (a) Comparable (b) Comparator (c) Comparator factory
+  //  System.out.println("(a) Comparable ");
+  //  teamsList.sort(null);
+   // System.out.println(teamsList);
+
+    System.out.println("(b) Comparator");
+    teamsList.sort(new TeamNameComparator());
+    System.out.println(teamsList);
+
+    //step 3 - print output
+    //Use Comparator.compare()
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 private void topic1_2DArrays() {
 
