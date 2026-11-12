@@ -72,7 +72,15 @@ private void demo05_Iteration() {
     System.out.println(similarity(countryCodeListA.iterator(), countryCodeListB.iterator()));
 
     var itA = countryCodeListA.iterator(); var itB = countryCodeListB.iterator();
-    float similiar = similarity(itA, itB, filter);
+
+    //using Comparator factory
+    Comparator<String> byLength = Comparator.comparingInt(String::length);
+    float similiar = similarity(itA, itB, byLength);
+    System.out.println(similiar);
+
+    //use lambda expression
+    Comparator<String> byLengthAlso = (a, b) -> Integer.compare(a.length(),b.length());
+    similiar = similarity(itA, itB, byLengthAlso);
     System.out.println(similiar);
 }
 
