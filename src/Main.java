@@ -1,6 +1,9 @@
 import ce01.FileUtils;
 import ce01.LicencePlate;
 import ce01.LicencePlateValidator;
+import topic03.ChainComparator;
+import topic03.PriceAsc;
+import topic03.Product;
 import topic03.underwatch.Color;
 import topic03.underwatch.Team;
 import topic03.underwatch.TeamNameComparator;
@@ -34,7 +37,140 @@ import topic03.underwatch.TeamNameComparator;
 */
 
 void main() {
-    topic03_UnderwatchDemo();
+    //topic03_UnderwatchDemo();
+  //  topic03_ComparatorDemo();
+   // topic03_Exercise08();
+
+    /*
+    * To Do:
+    * - Collections 1
+          - for(), for(int), Iterator
+    *     - exercise
+    *     - LinkedList, Deque
+    * */
+
+    demo05_Iteration();
+}
+
+private void demo05_Iteration() {
+
+   // ArrayList<String> countyCodeList = new ArrayList<>();
+    countyCodeList.add("ie");
+
+    ArrayList<String> countryCodeList = new ArrayList<>(List.of("it","de","ca","ua","","jp","au"));
+
+    //for(read-only)
+    for(String s : countryCodeList)
+        System.out.println(s);
+
+    //iterator
+    Iterator<String> it = countryCodeList.iterator();
+    while(it.hasNext())
+        System.out.println(it.next());
+
+    System.out.println(compare(countryCodeList, countryCodeList));
+}
+public boolean compare(ArrayList<String> a, ArrayList<String> b)
+{
+    a.sort(null);
+    b.sort(null);
+    var itA = a.iterator();
+    var itB = b.iterator();
+
+    while(itA.hasNext())
+    {
+        String sA = itA.next();
+        String sB = itB.next();
+        if(!sA.equals(sB)) return false;
+    }
+    return true;
+}
+
+public void print(Iterator<String> it){
+    while(it.hasNext())
+        System.out.println(it.next());
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+private void topic03_Exercise08() {
+
+    var items = new ArrayList<Product>();
+
+    var it = items.iterator();
+
+    items.add(new Product("    Mouse", 15.0, 4.2));
+    items.add(new Product("Keyboard   ", 45.0, 4.5));
+    items.add(new Product("   Monitor  ", 120.0, 4.1));
+    items.add(new Product("Mat", 15.0, 4.5));
+
+    ChainComparator chain = new ChainComparator();
+    chain.add(new PriceAsc());
+    chain.add(new PriceAsc());
+    chain.add(new PriceAsc());
+    chain.add(new PriceAsc());
+    chain.add(new PriceAsc());
+
+    items.sort(chain);
+}
+
+private void topic03_ComparatorDemo() {
+
+    var items = new ArrayList<Product>();
+    items.add(new Product("    Mouse", 15.0, 4.2));
+    items.add(new Product("Keyboard   ", 45.0, 4.5));
+    items.add(new Product("   Monitor  ", 120.0, 4.1));
+    items.add(new Product("Mat", 15.0, 4.5));
+
+    // Primary: price ?, Tie1: rating ?, Tie2: name ?
+    Comparator<Product> cmpA = Comparator.comparingDouble(Product::get_rating)
+                                .thenComparing(Product::get_price)
+                                    .reversed();
+    System.out.println();
+    items.sort(cmpA);
+    System.out.println(items);
+
+    Comparator<Product> cmpB = Comparator.comparing((Product p) -> p.get_name().trim());
+
+    System.out.println();
+    items.sort(cmpB);
+    System.out.println(items);
+    //three hours later...
+
+    System.out.println();
+    items.forEach((Product p) -> System.out.println(p.get_name().trim().toUpperCase()));
+
+    System.out.println();
+    items.forEach((Product p) -> {
+        System.out.println(p.get_name().trim()
+                + "(" + p.get_rating()
+                + " stars)");
+    });
+
+    System.out.println();
+    items.removeIf((Product prod) -> prod.get_price() <= 40);
+    System.out.println(items);
+
+    System.out.println();
+    items.removeIf((Product prod) -> prod.get_price() <= 40
+                                    && (prod.get_rating() >= 4.2 && prod.get_rating() <= 4.4));
+    System.out.println(items);
+
 }
 
 private void topic03_UnderwatchDemo() {
