@@ -66,9 +66,24 @@ private void demo05_Iteration() {
 //        System.out.println(it.next());
 
     ArrayList<String> countryCodeListA = new ArrayList<>(List.of("it","de","ca"));
-    ArrayList<String> countryCodeListB = new ArrayList<>(List.of("de","ca", "it"));
-    System.out.println(compare(countryCodeListA, countryCodeListB));
+    ArrayList<String> countryCodeListB = new ArrayList<>(List.of("it","cz", "ie"));
+    countryCodeListA.sort(null);
+    countryCodeListB.sort(null);
+    System.out.println(similarity(countryCodeListA.iterator(), countryCodeListB.iterator()));
 }
+public float similarity(Iterator<String> itA, Iterator<String> itB)
+{
+    float size = 0;
+    int identical = 0;
+    while(itA.hasNext())
+    {
+        size++;
+        if(itA.next().equals(itB.next()))
+            identical++;
+    }
+   return identical/size;
+}
+
 public boolean compare(ArrayList<String> a, ArrayList<String> b)
 {
     a.sort(null);
@@ -99,22 +114,6 @@ public boolean compare(ArrayList<String> a, ArrayList<String> b, Comparator<Stri
         if(!sA.equals(sB)) return false;
     }
     return true;
-}
-
-
-public float similarity(Iterator<String> itA, Iterator<String> itB)
-{
-    int size = 0;
-    int identical = 0;
-
-    while(itA.hasNext())
-    {
-        size++;
-
-        if(itA.next().equals(itB.next()))
-            identical++;
-    }
-   return identical/size;
 }
 
 public void print(Iterator<String> it){
