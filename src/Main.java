@@ -85,6 +85,34 @@ public boolean compare(ArrayList<String> a, ArrayList<String> b)
     return true;
 }
 
+public boolean compare(ArrayList<String> a, ArrayList<String> b, Comparator<String> comparator)
+{
+    a.sort(comparator);
+    b.sort(comparator);
+    var itA = a.iterator();
+    var itB = b.iterator();
+
+    while(itA.hasNext())
+    {
+        String sA = itA.next();
+        String sB = itB.next();
+        if(!sA.equals(sB)) return false;
+    }
+    return true;
+}
+
+
+public boolean compare(Iterator<String> itA, Iterator<String> itB)
+{
+    while(itA.hasNext())
+    {
+        String sA = itA.next();
+        String sB = itB.next();
+        if(!sA.equals(sB)) return false;
+    }
+    return true;
+}
+
 public void print(Iterator<String> it){
     while(it.hasNext())
         System.out.println(it.next());
