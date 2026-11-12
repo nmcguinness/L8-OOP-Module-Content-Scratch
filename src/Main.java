@@ -54,21 +54,20 @@ void main() {
 
 private void demo05_Iteration() {
 
-   // ArrayList<String> countyCodeList = new ArrayList<>();
-    countyCodeList.add("ie");
+  //  ArrayList<String> countryCodeList = new ArrayList<>(List.of("it","de","ca"));
 
-    ArrayList<String> countryCodeList = new ArrayList<>(List.of("it","de","ca","ua","","jp","au"));
+//    //for(read-only)
+//    for(String s : countryCodeList)
+//        System.out.println(s);
+//
+//    //iterator
+//    Iterator<String> it = countryCodeList.iterator();
+//    while(it.hasNext())
+//        System.out.println(it.next());
 
-    //for(read-only)
-    for(String s : countryCodeList)
-        System.out.println(s);
-
-    //iterator
-    Iterator<String> it = countryCodeList.iterator();
-    while(it.hasNext())
-        System.out.println(it.next());
-
-    System.out.println(compare(countryCodeList, countryCodeList));
+    ArrayList<String> countryCodeListA = new ArrayList<>(List.of("it","de","ca"));
+    ArrayList<String> countryCodeListB = new ArrayList<>(List.of("de","ca", "it"));
+    System.out.println(compare(countryCodeListA, countryCodeListB));
 }
 public boolean compare(ArrayList<String> a, ArrayList<String> b)
 {
