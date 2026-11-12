@@ -76,13 +76,13 @@ private void demo05_Iteration() {
     Comparator<String> byLength = Comparator.comparingInt(String::length);
     float similiar = similarity(itA, itB, byLength);
     System.out.println("using Comparator factory: " + similiar);
-
+    
     //use lambda expression
+    var itC = countryCodeListA.iterator(); var itD = countryCodeListB.iterator();
     Comparator<String> byLengthAlso = (a, b) -> Integer.compare(a.length(),b.length());
-    similiar = similarity(itA, itB, byLengthAlso);
+    similiar = similarity(itC, itD, byLengthAlso);
     System.out.println("using lambda expression: " + similiar);
 }
-
 public float similarity(Iterator<String> itA, Iterator<String> itB, Comparator<String> filter)
 {
     float size = 0;
