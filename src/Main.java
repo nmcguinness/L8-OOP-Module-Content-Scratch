@@ -102,15 +102,19 @@ public boolean compare(ArrayList<String> a, ArrayList<String> b, Comparator<Stri
 }
 
 
-public boolean compare(Iterator<String> itA, Iterator<String> itB)
+public float similarity(Iterator<String> itA, Iterator<String> itB)
 {
+    int size = 0;
+    int identical = 0;
+
     while(itA.hasNext())
     {
-        String sA = itA.next();
-        String sB = itB.next();
-        if(!sA.equals(sB)) return false;
+        size++;
+
+        if(itA.next().equals(itB.next()))
+            identical++;
     }
-    return true;
+   return identical/size;
 }
 
 public void print(Iterator<String> it){
