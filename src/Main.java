@@ -72,18 +72,27 @@ private void demo05_Iteration() {
     System.out.println(similarity(countryCodeListA.iterator(), countryCodeListB.iterator()));
     var itA = countryCodeListA.iterator(); var itB = countryCodeListB.iterator();
 
-    //using Comparator factory
-    Comparator<String> byLength = Comparator.comparingInt(String::length);
-    float similiar = similarity(itA, itB, byLength);
-    System.out.println("using Comparator factory: " + similiar);
-    
-    //use lambda expression
-    var itC = countryCodeListA.iterator(); var itD = countryCodeListB.iterator();
-    Comparator<String> byLengthAlso = (a, b) -> Integer.compare(a.length(),b.length());
-    similiar = similarity(itC, itD, byLengthAlso);
-    System.out.println("using lambda expression: " + similiar);
+    if(isValid(countryCodeListA) && isValid(countryCodeListB)) {
+        //using Comparator factory
+        Comparator<String> byLength = Comparator.comparingInt(String::length);
+        float similiar = similarity(itA, itB, byLength);
+        System.out.println("using Comparator factory: " + similiar);
+
+        //use lambda expression
+        var itC = countryCodeListA.iterator();
+        var itD = countryCodeListB.iterator();
+        Comparator<String> byLengthAlso = (a, b) -> Integer.compare(a.length(), b.length());
+        similiar = similarity(itC, itD, byLengthAlso);
+        System.out.println("using lambda expression: " + similiar);
+    }
 }
-public float similarity(Iterator<String> itA, Iterator<String> itB, Comparator<String> filter)
+
+public <T> boolean isValid(List<T> list){
+    return list != null && list.size() != 0;
+}
+
+//convert last version of similarity() to a generic method that takes <T>
+public <T> float similarity(Iterator<T> itA, Iterator<T> itB, Comparator<T> filter)
 {
     float size = 0;
     int identical = 0;
@@ -95,6 +104,21 @@ public float similarity(Iterator<String> itA, Iterator<String> itB, Comparator<S
     }
     return identical/size;
 }
+
+
+
+//public float similarity(Iterator<String> itA, Iterator<String> itB, Comparator<String> filter)
+//{
+//    float size = 0;
+//    int identical = 0;
+//    while(itA.hasNext())
+//    {
+//        size++;
+//        if(filter.compare(itA.next(), itB.next()) == 0)
+//            identical++;
+//    }
+//    return identical/size;
+//}
 
 public float similarity(Iterator<String> itA, Iterator<String> itB)
 {
