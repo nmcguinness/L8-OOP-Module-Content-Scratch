@@ -70,7 +70,25 @@ private void demo05_Iteration() {
     countryCodeListA.sort(null);
     countryCodeListB.sort(null);
     System.out.println(similarity(countryCodeListA.iterator(), countryCodeListB.iterator()));
+
+    var itA = countryCodeListA.iterator(); var itB = countryCodeListB.iterator();
+    float similiar = similarity(itA, itB, filter);
+    System.out.println(similiar);
 }
+
+public float similarity(Iterator<String> itA, Iterator<String> itB, Comparator<String> filter)
+{
+    float size = 0;
+    int identical = 0;
+    while(itA.hasNext())
+    {
+        size++;
+        if(filter.compare(itA.next(), itB.next()) == 0)
+            identical++;
+    }
+    return identical/size;
+}
+
 public float similarity(Iterator<String> itA, Iterator<String> itB)
 {
     float size = 0;
