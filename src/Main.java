@@ -1,12 +1,14 @@
 import ce01.FileUtils;
 import ce01.LicencePlate;
 import ce01.LicencePlateValidator;
+import topic0.Vector3;
 import topic03.ChainComparator;
 import topic03.PriceAsc;
 import topic03.Product;
 import topic03.underwatch.Color;
 import topic03.underwatch.Team;
 import topic03.underwatch.TeamNameComparator;
+import topic06.Asteroid;
 
 /*
     //tesla cannon, rheinhardt hammer, grav cannon, plasma cannon
@@ -37,20 +39,54 @@ import topic03.underwatch.TeamNameComparator;
 */
 
 void main() {
+
     //topic03_UnderwatchDemo();
   //  topic03_ComparatorDemo();
    // topic03_Exercise08();
+    //demo05_Iteration();
 
-    /*
-    * To Do:
-    * - Collections 1
-          - for(), for(int), Iterator
-    *     - exercise
-    *     - LinkedList, Deque
-    * */
-
-    demo05_Iteration();
+    topic06_Collections2();
 }
+
+private void topic06_Collections2() {
+
+    ArrayList<Asteroid> asteroids = new ArrayList<>(
+            List.of(
+                 new Asteroid(),
+                 new Asteroid(300, new Vector3(0.6, 0.6, 0.6), new Vector3(-1, 0.2, 0)),
+                    new Asteroid(250, new Vector3(0.6, 0.5, 0.6), new Vector3(-1, -0.1, 0)),
+                    new Asteroid(800, new Vector3(0.9, 0.5, 0.6), new Vector3(-1, 0, 0)),
+                    new Asteroid(700, new Vector3(0.8, 1, 0.7), new Vector3(-1, 0.6, 0)),
+                    new Asteroid(650, new Vector3(0.9, 0.9, 0.2), new Vector3(-1, -0.4, 0))
+            ));
+
+    display(asteroids.iterator(), "------------ Asteroids ------------");
+}
+
+private <T> void display(Iterator<T> iter, String headerMsg){
+
+    System.out.println(headerMsg);
+    while(iter.hasNext())
+        System.out.println(iter.next());
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 private void demo05_Iteration() {
 
