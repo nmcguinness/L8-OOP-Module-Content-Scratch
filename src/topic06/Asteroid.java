@@ -2,6 +2,8 @@ package topic06;
 
 import topic0.Vector3;
 
+import java.util.Objects;
+
 public class Asteroid {
 
     //region Static Fields
@@ -43,7 +45,7 @@ public class Asteroid {
     }
     //endregion
 
-
+    //region Constructors
     public Asteroid() {
         this(DEFAULT_AST_SIZE, DEFAULT_AST_COLOR, DEFAULT_AST_VELOCITY);
     }
@@ -53,4 +55,29 @@ public class Asteroid {
         this.color = color;
         this.velocity = velocity;
     }
+    //endregion
+
+    //region Housekeeping
+    @Override
+    public String toString() {
+        return "Asteroid{" +
+                "size=" + size +
+                ", color=" + color +
+                ", velocity=" + velocity +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Asteroid asteroid)) return false;
+        return Float.compare(getSize(), asteroid.getSize()) == 0
+                && Objects.equals(getColor(), asteroid.getColor())
+                && Objects.equals(getVelocity(), asteroid.getVelocity());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getSize(), getColor(), getVelocity());
+    }
+    //endregion
 }
