@@ -62,9 +62,10 @@ private void topic06_Collections2() {
 
     display(asteroids.iterator(), "------------ Asteroids ------------");
 
-    update(asteroids.listIterator());
-
-    display(asteroids.iterator(), "------------ Asteroids ------------");
+    for(int i = 0; i < 4; i++){
+        update(asteroids.listIterator());
+        display(asteroids.iterator(), "------------ Asteroids ------------");
+    }
 }
 
 private <T> void display(Iterator<T> iter, String headerMsg){
