@@ -60,11 +60,11 @@ private void topic06_Collections2() {
                     new Asteroid(650, new Vector3(0.9, 0.9, 0.2), new Vector3(-1, -0.4, 0))
             ));
 
-    display(asteroids.iterator(), "------------ Asteroids ------------");
+    display(asteroids.iterator(), "------------ Asteroids[" + asteroids.size() + "] ------------");
 
-    for(int i = 0; i < 4; i++){
+    for(int i = 0; i < 2; i++){
         update(asteroids.listIterator());
-        display(asteroids.iterator(), "------------ Asteroids ------------");
+        display(asteroids.iterator(), "------------ Asteroids[" + asteroids.size() + "] ------------");
     }
 }
 
@@ -87,14 +87,16 @@ private void update(ListIterator<Asteroid> iter){
                 iter.remove();
             }else{
                 //create two new asteroids
-                float oldSize = a.getSize();
+                float halfSize = a.getSize()/2;
                 Vector3 oldColor = a.getColor();
                 Vector3 oldVelocity = a.getVelocity();
 
                 iter.remove();
 
-                iter.add(new Asteroid(oldSize/2, oldColor, oldVelocity));
-                iter.add(new Asteroid(oldSize/2, oldColor, oldVelocity));
+                if(halfSize > Asteroid.SIZE_SMALL_UPPER) {
+                    iter.add(new Asteroid(halfSize, oldColor, oldVelocity));
+                    iter.add(new Asteroid(halfSize, oldColor, oldVelocity));
+                }
             }
         }
     }
