@@ -62,9 +62,9 @@ private void topic06_Collections2() {
 
     display(asteroids.iterator(), "------------ Asteroids[" + asteroids.size() + "] ------------");
 
-    for(int i = 0; i < 2; i++){
+    for(int i = 0; i < 3; i++){
         update(asteroids.listIterator());
-        display(asteroids.iterator(), "------------ Asteroids[" + asteroids.size() + "] ------------");
+        display(asteroids.iterator(), "------------ Asteroids[" + asteroids.size() + "][" + i + "] ------------");
     }
 }
 
@@ -104,7 +104,7 @@ private void update(ListIterator<Asteroid> iter){
 
 private boolean getRandomHit()
 {
-    float RAND_THRESHOLD = 0;  //~difficulty level
+    float RAND_THRESHOLD = 50;  //~difficulty level
     var rand = new Random();
     var randInt = rand.nextInt(100);
 
