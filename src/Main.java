@@ -61,6 +61,10 @@ private void topic06_Collections2() {
             ));
 
     display(asteroids.iterator(), "------------ Asteroids ------------");
+
+    update(asteroids.iterator());
+
+    display(asteroids.iterator(), "------------ Asteroids ------------");
 }
 
 private <T> void display(Iterator<T> iter, String headerMsg){
@@ -70,7 +74,7 @@ private <T> void display(Iterator<T> iter, String headerMsg){
         System.out.println(iter.next());
 }
 
-private void Update(Iterator<Asteroid> iter){
+private void update(Iterator<Asteroid> iter){
 
     //iterate through the list, fire with random hit, process asteroid if hit
     while(iter.hasNext())
@@ -87,7 +91,7 @@ private void Update(Iterator<Asteroid> iter){
 
 private boolean getRandomHit()
 {
-    float RAND_THRESHOLD = 50;  //~difficulty level
+    float RAND_THRESHOLD = 0;  //~difficulty level
     var rand = new Random();
     var randInt = rand.nextInt(100);
 
