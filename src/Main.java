@@ -70,22 +70,29 @@ private <T> void display(Iterator<T> iter, String headerMsg){
         System.out.println(iter.next());
 }
 
+private void Update(Iterator<Asteroid> iter){
 
+    //iterate through the list, fire with random hit, process asteroid if hit
+    while(iter.hasNext())
+    {
+        Asteroid a = iter.next();
+        if(getRandomHit()){
+            //add hit logic
+            if(a.getSize() <= Asteroid.SIZE_SMALL_UPPER){
+                iter.remove();
+            }
+        }
+    }
+}
 
+private boolean getRandomHit()
+{
+    float RAND_THRESHOLD = 50;  //~difficulty level
+    var rand = new Random();
+    var randInt = rand.nextInt(100);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    return randInt >= RAND_THRESHOLD ? true : false;
+}
 
 
 private void demo05_Iteration() {

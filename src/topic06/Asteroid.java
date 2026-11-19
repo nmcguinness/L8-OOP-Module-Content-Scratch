@@ -7,6 +7,10 @@ import java.util.Objects;
 public class Asteroid {
 
     //region Static Fields
+    public static final float SIZE_SMALL_UPPER = 100;
+    public static final float SIZE_MEDIUM_UPPER = 500;
+    public static final float SIZE_LARGE_UPPER = 1000;
+
     private static final float DEFAULT_AST_SIZE = 100;
     private static final Vector3 DEFAULT_AST_COLOR = new Vector3(0.5, 0.5, 0.5);
     private static final Vector3 DEFAULT_AST_VELOCITY = new Vector3(-1, 0, 0) ;
