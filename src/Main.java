@@ -64,7 +64,7 @@ private void topic06_Collections2() {
 
     for(int i = 0; i < 3; i++){
         update(asteroids.listIterator());
-        display(asteroids.iterator(), "------------ Asteroids[" + asteroids.size() + "][" + i + "] ------------");
+        display(asteroids.iterator(), "------------ Asteroids[" + asteroids.size() + "] on loop[" + i + "] ------------");
     }
 }
 
