@@ -62,7 +62,7 @@ private void topic06_Collections2() {
 
     display(asteroids.iterator(), "------------ Asteroids ------------");
 
-    update(asteroids.iterator());
+    update(asteroids.listIterator());
 
     display(asteroids.iterator(), "------------ Asteroids ------------");
 }
@@ -74,7 +74,7 @@ private <T> void display(Iterator<T> iter, String headerMsg){
         System.out.println(iter.next());
 }
 
-private void update(Iterator<Asteroid> iter){
+private void update(ListIterator<Asteroid> iter){
 
     //iterate through the list, fire with random hit, process asteroid if hit
     while(iter.hasNext())
@@ -82,8 +82,18 @@ private void update(Iterator<Asteroid> iter){
         Asteroid a = iter.next();
         if(getRandomHit()){
             //add hit logic
-            if(a.getSize() <= Asteroid.SIZE_SMALL_UPPER){
+            if(a.getSize() <= Asteroid.SIZE_SMALL_UPPER) {
                 iter.remove();
+            }else{
+                //create two new asteroids
+                float oldSize = a.getSize();
+                Vector3 oldColor = a.getColor();
+                Vector3 oldVelocity = a.getVelocity();
+
+                iter.remove();
+
+                iter.add(new Asteroid(oldSize/2, oldColor, oldVelocity));
+                iter.add(new Asteroid(oldSize/2, oldColor, oldVelocity));
             }
         }
     }
