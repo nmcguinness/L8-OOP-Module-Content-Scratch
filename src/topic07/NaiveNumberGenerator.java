@@ -20,9 +20,9 @@ public class NaiveNumberGenerator {
         Random rand = new Random();
 
         boolean bExists = false;
-
+        int randInt = 0;
         do {
-            int randInt = rand.nextInt(min, max);
+            randInt = rand.nextInt(min, max);
             for (int n : history) {
                 if (n == randInt) {
                     bExists = true;
@@ -33,11 +33,6 @@ public class NaiveNumberGenerator {
             history.add(randInt);
         }while(bExists);
 
-
-        //generate a random integer, nextInt()
-        //iterate across the list and see if we have this number
-        //repeat generation until we dont have the number in the list i.e. its unique
-        //do...
-        //while...
+        return randInt;
     }
 }
