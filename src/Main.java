@@ -44,8 +44,80 @@ void main() {
   //  topic03_ComparatorDemo();
    // topic03_Exercise08();
     //demo05_Iteration();
+   // topic06_Collections2();
+   // demo06_LinkedList();
+    //demo06_Deque_FIFO();
+    //demo06_Deque_LIFO();
 
-    topic06_Collections2();
+    topic07_SetDemo();
+}
+
+void topic07_SetDemo(){
+
+    /*
+    - Need to generate a unique non-repeating integer in a range [min,max]
+    */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+private void demo06_Deque_LIFO() {
+    Deque<Integer> dq = new LinkedList<>();
+    dq.addFirst(1);
+    dq.addLast(2); // [1,2]
+    dq.addFirst(0);                // [0,1,2]
+    int head = dq.removeFirst();   // 0
+
+    Deque<String> stack = new LinkedList<>();
+    stack.push("state1");
+    stack.push("state2");
+    String undo = stack.pop();     // "state2"
+}
+
+private void demo06_Deque_FIFO() {
+    Deque<String> tasks = new LinkedList<>();
+    tasks.offer("A");       // enqueue (tail)
+    tasks.offer("B");
+    String t1 = tasks.poll();  // dequeue (head) → "load"
+    String t2 = tasks.peek();  // look at head → "parse"
+
+    System.out.println(t1);
+    System.out.println(t2);
+}
+
+private void demo06_LinkedList() {
+    var list = new LinkedList<String>();
+    list.add("A"); list.add("C"); list.add("D");
+
+    ListIterator<String> it = list.listIterator();
+    while (it.hasNext()) {
+        String s = it.next();
+        if (s.equals("A")) it.add("B");     // insert right after A
+        if (s.equals("D")) it.set("Delta"); // replace current element
+    }
+// Walk backward
+    while (it.hasPrevious()) {
+        System.out.println(it.previous());
+    }
+
+    while (it.hasNext()) {
+        System.out.println(it.next());
+    }
+
+
 }
 
 private void topic06_Collections2() {
