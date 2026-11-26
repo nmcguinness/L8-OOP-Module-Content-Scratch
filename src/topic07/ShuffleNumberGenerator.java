@@ -3,7 +3,7 @@ package topic07;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class ShuffleNumberGenerator {
+public class ShuffleNumberGenerator implements IGenerateNumber {
 
     private final int min;
     private final int max;
@@ -26,10 +26,7 @@ public class ShuffleNumberGenerator {
     }
 
     public int getNext() throws Exception {
-
-        //get last number in the list
-        //remove last number
         //return last number
-        return -1;
+        return numbers.removeLast();
     }
 }

@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class NaiveNumberGenerator {
+public class NaiveNumberGenerator implements IGenerateNumber
+{
 
     private final int min;
     private final int max;
