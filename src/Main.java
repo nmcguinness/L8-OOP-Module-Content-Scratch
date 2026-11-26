@@ -9,6 +9,7 @@ import topic03.underwatch.Color;
 import topic03.underwatch.Team;
 import topic03.underwatch.TeamNameComparator;
 import topic06.Asteroid;
+import topic07.NaiveNumberGenerator;
 
 /*
     //tesla cannon, rheinhardt hammer, grav cannon, plasma cannon
@@ -57,6 +58,13 @@ void topic07_SetDemo(){
     /*
     - Need to generate a unique non-repeating integer in a range [min,max]
     */
+    var nng = new NaiveNumberGenerator(1, 4);
+
+    System.out.println(nng.getNext());
+    System.out.println(nng.getNext());
+    System.out.println(nng.getNext());
+    System.out.println(nng.getNext());
+    System.out.println("Done!");
 }
 
 
