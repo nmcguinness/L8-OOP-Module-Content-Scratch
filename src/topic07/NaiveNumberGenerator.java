@@ -11,28 +11,42 @@ public class NaiveNumberGenerator {
     private List<Integer> history;
 
     public NaiveNumberGenerator(int min, int max){
-        this.min = min;
+
+        //defensive coding
+        if(max < min)
+            throw new IllegalArgumentException("max must be <= min");
+
         this.max = max;
+        this.min = min;
         this.history = new ArrayList<>();
     }
 
-    public int getNext(){
-        Random rand = new Random();
+    public void reset(){
+        if(history.size() != 0)
+            history.clear();
+    }
+
+    public int getNext() throws Exception {
+
+        if(history.size() == ((max - min) + 1))
+            throw new Exception("We have run out of numbers!");
+
+        long seed = System.nanoTime();
+        Random rand = new Random(seed);
 
         boolean bExists = false;
         int randInt = 0;
         do {
-            randInt = rand.nextInt(min, max);
+            bExists = false;
+            randInt = rand.nextInt(min, max+1);
             for (int n : history) {
                 if (n == randInt) {
                     bExists = true;
-                    continue;
+                    break;
                 }
             }
-            bExists = false;
-            history.add(randInt);
         }while(bExists);
-
+        history.add(randInt);
         return randInt;
     }
 }

@@ -58,12 +58,20 @@ void topic07_SetDemo(){
     /*
     - Need to generate a unique non-repeating integer in a range [min,max]
     */
-    var nng = new NaiveNumberGenerator(1, 4);
 
-    System.out.println(nng.getNext());
-    System.out.println(nng.getNext());
-    System.out.println(nng.getNext());
-    System.out.println(nng.getNext());
+    NaiveNumberGenerator nng = null;
+
+    try {
+        nng = new NaiveNumberGenerator(1, 4);
+        System.out.println(nng.getNext());
+        System.out.println(nng.getNext());
+        System.out.println(nng.getNext());
+        System.out.println(nng.getNext());
+        System.out.println(nng.getNext());
+    }catch(Exception e){
+        System.out.println(e.getMessage());
+        nng.reset();
+    }
     System.out.println("Done!");
 }
 
