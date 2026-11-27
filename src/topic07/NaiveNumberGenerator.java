@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class NaiveNumberGenerator implements IGenerateNumber
+public class NaiveNumberGenerator implements IGenerateNumber, IResetable
 {
-
+    private Random rand;
     private final int min;
     private final int max;
     private List<Integer> history;
@@ -20,6 +20,9 @@ public class NaiveNumberGenerator implements IGenerateNumber
         this.max = max;
         this.min = min;
         this.history = new ArrayList<>();
+
+        //initialize random number system
+        this.rand = new Random(System.nanoTime());
     }
 
     public void reset(){
@@ -32,8 +35,7 @@ public class NaiveNumberGenerator implements IGenerateNumber
         if(history.size() == ((max - min) + 1))
             throw new Exception("We have run out of numbers!");
 
-        long seed = System.nanoTime();
-        Random rand = new Random(seed);
+
 
         boolean bExists = false;
         int randInt = 0;

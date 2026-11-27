@@ -9,9 +9,10 @@ import topic03.underwatch.Color;
 import topic03.underwatch.Team;
 import topic03.underwatch.TeamNameComparator;
 import topic06.Asteroid;
-import topic07.NaiveNumberGenerator;
-import topic07.ShuffleNumberGenerator;
-import topic07.UniqueNumberGenerator;
+import topic07.*;
+import topic07.image.EdgeImageFilter;
+import topic07.image.GreyScaleImageFilter;
+import topic07.image.ScaleImageFilter;
 
 /*
     //tesla cannon, rheinhardt hammer, grav cannon, plasma cannon
@@ -109,6 +110,37 @@ void topic07_SetDemo(){
 
     System.out.println("Lets check the actual order of numbers in UNG...");
     ung.display();
+
+    ArrayList<IGenerateNumber> listOfGenerators = new ArrayList<>();
+    listOfGenerators.add(nng);
+    listOfGenerators.add(ung);
+    listOfGenerators.add(sng);
+
+    try{
+        for(IGenerateNumber generator : listOfGenerators)
+            System.out.println(generator.getNext());
+    }catch(Exception e)
+    {
+        System.out.println(e.getMessage());
+    }
+
+    LinkedList<IResetable> listOfResetable = new LinkedList<IResetable>();
+    listOfResetable.add(nng);
+    listOfResetable.add(sng);
+    listOfResetable.add(ung);
+
+    for(IResetable resetable : listOfResetable)
+        resetable.reset();
+
+    ArrayList<IFilterImage> imageFilters = new ArrayList<>();
+    imageFilters.add(new ScaleImageFilter());
+    imageFilters.add(new GreyScaleImageFilter());
+    imageFilters.add(new EdgeImageFilter());
+}
+
+public int[] applyImageFilters(ArrayList<IFilterImage> filters, int[] image){
+    //
+    return null; //dummy return until this code is written!
 }
 
 

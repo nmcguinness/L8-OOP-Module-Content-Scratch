@@ -3,7 +3,7 @@ package topic07;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class ShuffleNumberGenerator implements IGenerateNumber {
+public class ShuffleNumberGenerator implements IGenerateNumber, IResetable {
 
     private final int min;
     private final int max;

@@ -6,6 +6,7 @@ import java.util.Random;
 
 public class UniqueNumberGenerator implements IGenerateNumber, IResetable {
 
+    private Random rand = null;
     private int min, max;
     private HashSet<Integer> sentinel;
     private ArrayList<Integer> numbers;
@@ -16,13 +17,17 @@ public class UniqueNumberGenerator implements IGenerateNumber, IResetable {
 
         numbers = new ArrayList<>(max - min + 1);
         sentinel = new HashSet<>(max - min + 1);
+        
+        //initialize random number system
+        this.rand = new Random(System.nanoTime());
     }
 
     @Override
     public int getNext() throws Exception {
 
-        //initialize random number system
-        Random rand = new Random(System.nanoTime());
+        if(numbers.size() == ((max - min) + 1))
+            throw new Exception("We have run out of numbers!");
+
         int randInt = 0;
         boolean bContinue = true;
         do{
