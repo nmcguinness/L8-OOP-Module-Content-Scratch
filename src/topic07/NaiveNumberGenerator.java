@@ -51,4 +51,10 @@ public class NaiveNumberGenerator implements IGenerateNumber
         return randInt;
     }
 
+    @Override
+    public void display() {
+        for(int n : history)
+            System.out.println(n);
+    }
+
 }

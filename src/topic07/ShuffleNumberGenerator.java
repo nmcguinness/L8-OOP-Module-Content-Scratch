@@ -28,6 +28,12 @@ public class ShuffleNumberGenerator implements IGenerateNumber {
         return numbers.removeLast();
     }
 
+    @Override
+    public void display() {
+        for(int n : numbers)
+            System.out.println(n);
+    }
+
     private void initialize(){
         //initialize an arraylist
         numbers = new ArrayList<>(size);

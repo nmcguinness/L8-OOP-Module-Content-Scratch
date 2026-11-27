@@ -75,6 +75,8 @@ void topic07_SetDemo(){
     }
     System.out.println("NaiveNumberGenerator: Done!");
 
+    System.out.println("Lets check the actual order of numbers in UNG...");
+    nng.display();
 
     ShuffleNumberGenerator sng = null;
     try {
@@ -89,6 +91,8 @@ void topic07_SetDemo(){
     }
     System.out.println("ShuffleNumberGenerator: Done!");
 
+    System.out.println("Lets check the actual order of numbers in UNG...");
+    sng.display();
 
     UniqueNumberGenerator ung = null;
     try {
@@ -103,6 +107,8 @@ void topic07_SetDemo(){
     }
     System.out.println("UniqueNumberGenerator: Done!");
 
+    System.out.println("Lets check the actual order of numbers in UNG...");
+    ung.display();
 }
 
 
