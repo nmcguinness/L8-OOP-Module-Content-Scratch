@@ -8,9 +8,16 @@ public class UniqueNumberGenerator implements IGenerateNumber, IResetable {
     private int min, max;
     private HashSet<Integer> sentinel;
 
+    public UniqueNumberGenerator(int min, int max) {
+        this.min = min;
+        this.max = max;
+
+        sentinel = new HashSet<>(max - min + 1);
+    }
+
     @Override
     public int getNext() throws Exception {
-        
+
         //initialize random number system
         Random rand = new Random(System.nanoTime());
         int randInt = 0;

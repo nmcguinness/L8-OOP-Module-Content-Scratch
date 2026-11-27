@@ -11,6 +11,7 @@ import topic03.underwatch.TeamNameComparator;
 import topic06.Asteroid;
 import topic07.NaiveNumberGenerator;
 import topic07.ShuffleNumberGenerator;
+import topic07.UniqueNumberGenerator;
 
 /*
     //tesla cannon, rheinhardt hammer, grav cannon, plasma cannon
@@ -82,26 +83,25 @@ void topic07_SetDemo(){
         System.out.println(sng.getNext());
         System.out.println(sng.getNext());
         System.out.println(sng.getNext());
-        System.out.println(sng.getNext());
     }catch(Exception e){
         System.out.println(e.getMessage());
         sng.reset();
     }
-    System.out.println("NaiveNumberGenerator: Done!");
+    System.out.println("ShuffleNumberGenerator: Done!");
 
-    HashSet<String> shoppingList = new HashSet<>();
-    shoppingList.add("milk");
-    shoppingList.add("butter");
 
-    System.out.println(shoppingList.size());
-
-    boolean result = shoppingList.contains("butter");
-    System.out.println(result);
-
-    shoppingList.remove("butter");
-
-    shoppingList.clear();
-
+    UniqueNumberGenerator ung = null;
+    try {
+        ung = new UniqueNumberGenerator(1, 4);
+        System.out.println(ung.getNext());
+        System.out.println(ung.getNext());
+        System.out.println(ung.getNext());
+        System.out.println(ung.getNext());
+    }catch(Exception e){
+        System.out.println(e.getMessage());
+        ung.reset();
+    }
+    System.out.println("UniqueNumberGenerator: Done!");
 
 }
 
