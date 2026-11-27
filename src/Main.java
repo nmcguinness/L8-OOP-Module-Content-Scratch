@@ -89,10 +89,18 @@ void topic07_SetDemo(){
     }
     System.out.println("NaiveNumberGenerator: Done!");
 
+    HashSet<String> shoppingList = new HashSet<>();
+    shoppingList.add("milk");
+    shoppingList.add("butter");
 
+    System.out.println(shoppingList.size());
 
+    boolean result = shoppingList.contains("butter");
+    System.out.println(result);
 
+    shoppingList.remove("butter");
 
+    shoppingList.clear();
 
 
 }
