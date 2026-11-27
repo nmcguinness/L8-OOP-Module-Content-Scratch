@@ -42,7 +42,8 @@ public class ShuffleNumberGenerator implements IGenerateNumber {
             return;
 
         //clear list just in case its not empty
-        numbers.clear();
+        if(!numbers.isEmpty())
+            numbers.clear();
 
         //add numbers from min to max
         for(int i = 0; i < size; i++)
