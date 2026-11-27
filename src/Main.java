@@ -10,6 +10,7 @@ import topic03.underwatch.Team;
 import topic03.underwatch.TeamNameComparator;
 import topic06.Asteroid;
 import topic07.NaiveNumberGenerator;
+import topic07.ShuffleNumberGenerator;
 
 /*
     //tesla cannon, rheinhardt hammer, grav cannon, plasma cannon
@@ -60,7 +61,6 @@ void topic07_SetDemo(){
     */
 
     NaiveNumberGenerator nng = null;
-
     try {
         nng = new NaiveNumberGenerator(1, 4);
         System.out.println(nng.getNext());
@@ -72,7 +72,29 @@ void topic07_SetDemo(){
         System.out.println(e.getMessage());
         nng.reset();
     }
-    System.out.println("Done!");
+    System.out.println("NaiveNumberGenerator: Done!");
+
+
+    ShuffleNumberGenerator sng = null;
+    try {
+        sng = new ShuffleNumberGenerator(1, 4);
+        System.out.println(sng.getNext());
+        System.out.println(sng.getNext());
+        System.out.println(sng.getNext());
+        System.out.println(sng.getNext());
+        System.out.println(sng.getNext());
+    }catch(Exception e){
+        System.out.println(e.getMessage());
+        sng.reset();
+    }
+    System.out.println("NaiveNumberGenerator: Done!");
+
+
+
+
+
+
+
 }
 
 

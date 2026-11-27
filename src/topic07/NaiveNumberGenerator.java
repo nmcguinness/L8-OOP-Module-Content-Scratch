@@ -50,4 +50,5 @@ public class NaiveNumberGenerator implements IGenerateNumber
         history.add(randInt);
         return randInt;
     }
+
 }
